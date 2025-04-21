@@ -1,120 +1,84 @@
 
-# 💳 Banking System in Java
+# 💰 Sistema Bancário em Java
 
-This is a simple **Banking System** project developed in Java, aimed at demonstrating concepts of **Object-Oriented Programming (OOP)**, **control structures**, **terminal-based user input**, and **package organization**.
+Este projeto é um sistema bancário simples desenvolvido em Java, com funcionalidades básicas como consulta de saldo, saque, depósito, pagamento de boletos e verificação de uso do cheque especial. Ele é ideal para iniciantes que desejam praticar lógica de programação, entrada de dados via console e conceitos de orientação a objetos.
 
-## 📌 Project Purpose
+## 📌 Funcionalidades
 
-The project simulates a basic banking system in which the user can create an account, check their balance, overdraft limit, deposit money, withdraw money, pay bills, and verify if they are using the overdraft limit.
+- ✅ Criação de conta bancária com nome, senha e saldo inicial.
+- 📄 Consulta de saldo disponível.
+- 🏦 Consulta do limite de cheque especial.
+- ➕ Depósito em conta.
+- ➖ Saque de valores.
+- 💸 Pagamento de boletos.
+- ⚠️ Verificação se o usuário está utilizando o cheque especial.
 
-## 🛠️ Features
+## 🛠️ Tecnologias Utilizadas
 
-- Account creation with name, password, and initial balance
-- Automatic overdraft limit calculation based on balance
-- Balance inquiry
-- Overdraft limit inquiry
-- Money deposit
-- Money withdrawal
-- Bill payment
-- Overdraft usage check
+- Java 11+
+- IDE de sua preferência (Eclipse, IntelliJ, VSCode etc.)
+- Terminal para entrada de dados
 
-## 🧱 Project Structure
+## 📁 Estrutura do Projeto
 
 ```
 sistema_bancario/
 ├── conta/
-│   └── Conta.java
-└── Main.java
+│   └── Conta.java        # Classe que representa uma conta bancária
+└── Main.java             # Classe principal com lógica de interação
 ```
 
-## 🧠 System Logic
+### 🔹 `Conta.java`
 
-### 📄 `Conta.java`
+A classe `Conta` armazena os dados da conta do usuário:
 
-Represents a bank account.
+- `nome` — nome do titular
+- `senha` — senha da conta
+- `saldo` — saldo inicial
+- `chequeEspecial` — limite de cheque especial (calculado com base no saldo)
 
-#### Attributes:
+Regras para o cheque especial:
+- Se o saldo for menor que R$500 → limite de 10%
+- Se o saldo for maior ou igual a R$500 → limite de 50%
 
-- `name`: Account holder's name
-- `password`: Access password
-- `balance`: Current account balance
-- `overdraftLimit`: Credit limit calculated based on the balance
+### 🔹 `Main.java`
 
-#### Business Rules:
+Interface via terminal que permite ao usuário interagir com o sistema bancário. As opções disponíveis incluem:
 
-- If the balance is less than R$500, overdraft is 10% of the balance
-- If the balance is R$500 or more, overdraft is 50% of the balance
+1. Consultar saldo  
+2. Consultar cheque especial  
+3. Depositar dinheiro  
+4. Sacar dinheiro  
+5. Pagar boleto  
+6. Verificar uso do cheque especial
 
-#### Methods:
+A aplicação utiliza `Scanner` para capturar as opções do usuário e processá-las em tempo real.
 
-- `getName()`
-- `getPassword()`
-- `getBalance()`
-- `getOverdraftLimit()`
+## ▶️ Como Executar
 
-### 📄 `Main.java`
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/sistema-bancario-java.git
+   ```
+2. Navegue até o diretório do projeto.
+3. Compile o código:
+   ```bash
+   javac sistema_bancario/conta/Conta.java sistema_bancario/Main.java
+   ```
+4. Execute o programa:
+   ```bash
+   java sistema_bancario.Main
+   ```
 
-Main class responsible for user interaction via the terminal.
+## 🎯 Objetivo do Projeto
 
-#### Main Flow:
+Este projeto foi criado com fins educacionais para reforçar os conceitos de:
 
-1. Creates a predefined account (name: Henrique, password: 123456, balance: 4000)
-2. Displays options to the user
-3. Executes selected operations in a loop until the user chooses to exit
+- Programação orientada a objetos (POO)
+- Operações com dados numéricos
+- Manipulação de entrada via terminal
+- Estrutura de controle (condições, loops, switch-case)
 
-#### Available Features:
+---
 
-| Option | Action                                      |
-|--------|---------------------------------------------|
-| 1      | Check Balance                               |
-| 2      | Check Overdraft Limit                       |
-| 3      | Deposit Money                               |
-| 4      | Withdraw Money                              |
-| 5      | Pay a Bill                                  |
-| 6      | Check if account is using overdraft         |
-
-## ⚠️ Current Limitations
-
-- Deposit, withdrawal, and bill payment do **not actually update the account's real balance**, since balance is passed as a primitive (`double`) and modified only locally.
-- Account data is hardcoded (Henrique, 123456, R$4000) — no user input for account creation.
-- No password verification for secure login.
-- Simple terminal interface, no graphical interface or data persistence.
-
-## 💡 Future Improvements
-
-- Make the balance a modifiable instance variable.
-- Allow users to create accounts with their own input.
-- Implement login authentication with name and password.
-- Add data persistence using files or a database.
-- Create subclasses for different account types.
-- Develop a graphical user interface (GUI) or RESTful API for broader access.
-
-## 💻 Example Output
-
-```
-Welcome to our bank!
-Here you can create your account and perform banking operations.
-Enter '1' to continue registration or '0' to exit
-1
-Welcome Henrique!
-Here are some options our bank offers: 
------------------
-1 - Check Balance
-2 - Check Overdraft Limit
-3 - Deposit Money
-4 - Withdraw Money
-5 - Pay a Bill
-6 - Check if account is using overdraft
------------------
-Which one would you like? (enter the option number)
-```
-
-## 🧑‍💻 Technologies Used
-
-- Language: **Java**
-- Tools: `javac`, `java` (Java compiler and runtime)
-- Modular structure using `package`
-
-## 📜 License
-
-This project is licensed under the MIT License. Feel free to use, modify, and distribute it as needed.
+Sinta-se à vontade para clonar, modificar e usar esse projeto como base para estudos!
